@@ -22,7 +22,6 @@
     }
 
     //SETTERS
-
     function setId($new_id)
     {
       $this->id = (int) $new_id;
@@ -33,9 +32,16 @@
       $this->stylist_name = (string) $new_stylist_name;
     }
 
-
-
     //DB FUNCTIONS
+    function save(){
+      $statement = $GLOBALS['DB']->query("INSERT INTO stylists (stylist_name) VALUES ('{$this->getStylistName()}') RETURNING id;");
+      $result = $statement->fetch(PDO::FETCH_ASSOC);
+      $this->setId($result['id']);
+    }
+
+    // static function getAll(){
+    //
+    // }
 
     //DELETE FUNCTIONS
 
