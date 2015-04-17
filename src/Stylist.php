@@ -75,5 +75,9 @@
       $GLOBALS['DB']->exec("DELETE FROM stylists *;");
     }
 
+    function deleteStylist(){
+      $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+    }
+
     //JOIN STYLIST TO CLIENTS
   }
