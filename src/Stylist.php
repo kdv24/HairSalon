@@ -23,6 +23,18 @@
 
     //SETTERS
 
+    function setId($new_id)
+    {
+      $this->id = (int) $new_id;
+    }
+
+    function setStylistName($new_stylist_name)
+    {
+      $this->stylist_name = (string) $new_stylist_name;
+    }
+
+
+
     //DB FUNCTIONS
 
     //DELETE FUNCTIONS
