@@ -39,11 +39,23 @@
       $this->setId($result['id']);
     }
 
-    // static function getAll(){
-    //
-    // }
+    static function getAll(){
+      $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists");
+      $stylists = array();
+
+      foreach ($returned_stylists as $stylist) {
+        $stylist_name = $stylist ["stylist_name"];
+        $id = $stylist ["id"];
+        $new_stylist_name = new Stylist ($stylist_name, $id);
+        array_push($stylists, $new_stylist_name);
+      }
+      return $stylists;
+    }
 
     //DELETE FUNCTIONS
+    static function deleteAll(){
+      $GLOBALS['DB']->exec("DELETE FROM stylists *;");
+    }
 
     //JOIN STYLIST TO CLIENTS
   }
