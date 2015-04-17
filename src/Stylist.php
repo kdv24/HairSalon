@@ -52,6 +52,11 @@
       return $stylists;
     }
 
+    function updateStylist($new_stylist){
+      $GLOBALS['DB']->exec("UPDATE stylists SET stylist_name = '{new_stylist}' WHERE id = {$this->getId()};");
+      $this->setStylistName($new_stylist);
+    }
+
     //DELETE FUNCTIONS
     static function deleteAll(){
       $GLOBALS['DB']->exec("DELETE FROM stylists *;");
